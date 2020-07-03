@@ -19,19 +19,17 @@ function printTime() {
 }
 
 function printMinutes() {
-  const strtime = chronometer.splitClick().split(':'); // ['09', '12']
+  const strtime = chronometer.splitClick(); // '09:12'
 
-  const mm = strtime[0]; // '09'
-  minDec.innerHTML = mm[0];
-  minUni.innerHTML = mm[1];
+  minDec.innerHTML = strtime[0]; // "0"
+  minUni.innerHTML = strtime[1]; // "9"
 }
 
 function printSeconds() {
-  const strtime = chronometer.splitClick().split(':'); // ['09', '12']
+  const strtime = chronometer.splitClick(); // '09:12'
 
-  const ss = strtime[1]; // '12'
-  secDec.innerHTML = ss[0];
-  secUni.innerHTML = ss[1];
+  secDec.innerHTML = strtime[3]; // "1"
+  secUni.innerHTML = strtime[4]; // "2"
 }
 
 // ==> BONUS
