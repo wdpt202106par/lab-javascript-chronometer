@@ -1,9 +1,16 @@
 class Chronometer {
+  currentTime = 0;
+  intervalId = 0;
   constructor() {
-    // ... your code goes here
+
+
+
   }
   startClick(callback) {
-    // ... your code goes here
+    setInterval(function () {
+      callback = `${}`
+      currentTime++;
+    }, 1)
   }
   getMinutes() {
     // ... your code goes here
