@@ -1,3 +1,5 @@
+/*-------------------------- Code Tran --------------------------------------------------------------------*/
+/*
 class Chronometer {
   constructor() {
     this.currentTime = 0;
@@ -40,10 +42,10 @@ class Chronometer {
     return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}`;
   }
 }
-
+*/
 
 /*----------------------------------------- Code Julien -----------------------------------------------*/
-/*class Chronometer {
+class Chronometer {
   constructor() {
     // ... your code goes here
     this.currentTime = 0;
@@ -65,9 +67,9 @@ class Chronometer {
     // ... your code goes here
     return Number(this.currentTime % 60);
   }
-  twoDigitsNumber() {
+  twoDigitsNumber(myTime) {
     // ... your code goes here
-    return this.currentTime.toString().length === 2 ? this.currentTime.toString() : "0" + this.currentTime.toString();
+    return myTime.toString().length === 2 ? myTime.toString() : "0" + myTime.toString();
   }
   stopClick() {
     // ... your code goes here
@@ -81,4 +83,4 @@ class Chronometer {
     // ... your code goes here
     return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}`;
   }
-}*/
+}
