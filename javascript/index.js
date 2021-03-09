@@ -15,14 +15,21 @@ let splits = document.getElementById('splits');
 
 function printTime() {
   // ... your code goes here
+  printMinutes();
+  printSeconds();
 }
 
 function printMinutes() {
   // ... your code goes here
+  minUni.innerHTML = chronometer.splitClick()[1];
+  minDec.innerHTML = chronometer.splitClick()[0];
+  
 }
 
 function printSeconds() {
-  // ... your code goes here
+  // ... your code goes here  
+  secUni.innerHTML = chronometer.splitClick()[4];
+  secDec.innerHTML = chronometer.splitClick()[3];  
 }
 
 // ==> BONUS
@@ -57,9 +64,27 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   // ... your code goes here
+  let btnLeftStatus = btnLeft.innerHTML;
+
+  if (btnLeftStatus === "START"){
+    btnLeft.setAttribute('class','btn stop');
+    btnLeft.innerHTML = "STOP";
+    btnRight.setAttribute('class','btn split');
+    btnRight.innerHTML = "SPLIT";
+    chronometer.startClick(printTime);
+  }
+  if (btnLeftStatus === "STOP"){
+    btnLeft.setAttribute('class','btn start');
+    btnLeft.innerHTML = "START";
+    btnRight.setAttribute('class','btn reset');
+    btnRight.innerHTML = "RESET";  
+    chronometer.stopClick();  
+  }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
   // ... your code goes here
+  chronometer.resetClick();
+  printTime();
 });
