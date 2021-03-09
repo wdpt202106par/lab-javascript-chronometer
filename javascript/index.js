@@ -41,7 +41,9 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+splits.createElement('li')
+splits.appendChild(splitClick())
+}
 }
 
 function clearSplits() {
