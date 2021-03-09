@@ -14,11 +14,15 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+
+
+
 }
 
 function printMinutes() {
-  // ... your code goes here
+
+
+
 }
 
 function printSeconds() {
@@ -47,7 +51,10 @@ function setSplitBtn() {
 }
 
 function setStartBtn() {
-  // ... your code goes here
+
+
+
+
 }
 
 function setResetBtn() {
@@ -56,10 +63,24 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+
+  if (btnLeft.innerHTML === "START") {
+    btnLeft.style.backgroundColor = "red";
+    btnLeft.innerHTML = "STOP";
+    chronometer.startClick(printTime);
+  } else {
+
+    btnLeft.style.backgroundColor = "green";
+    btnLeft.innerHTML = "START";
+  }
+
+
+
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+
+
+
 });
