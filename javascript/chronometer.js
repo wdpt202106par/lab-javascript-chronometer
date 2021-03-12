@@ -1,50 +1,3 @@
-/*-------------------------- Code Tran --------------------------------------------------------------------*/
-/*
-class Chronometer {
-  constructor() {
-    this.currentTime = 0;
-    this.intervalId = 0;
-  }
-  startClick(callback) {
-    this.intervalId = setInterval(() => {
-      this.currentTime++;
-      if (callback) callback()
-    }, 1000)
-  }
-  getMinutes() {
-   let min=Math.floor(this.currentTime/60);
-    return min;
-
-  }
-  getSeconds() {
-    let sec=this.currentTime%60;
-    return sec;
-  }
-  twoDigitsNumber() {
-    let min=Math.floor(this.currentTime/60);
-    let sec=this.currentTime%60;
-    if (min.length!==2){
-      min='0'+min;
-      return min;
-    }
-    if (sec.length!==2){
-      sec='0'+sec;
-      return sec;
-    }
-  }
-  stopClick() {
-    clearInterval(this.intervalId);
-  }
-  resetClick() {
-    this.currentTime=0;
-  }
-  splitClick() {
-    return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}`;
-  }
-}
-*/
-
-/*----------------------------------------- Code Julien -----------------------------------------------*/
 class Chronometer {
   constructor() {
     // ... your code goes here
@@ -55,17 +8,21 @@ class Chronometer {
   startClick(callback) {
     // ... your code goes here
     this.intervalId = setInterval(()=>{
-      this.currentTime ++
+      this.currentTime ++;
       if (callback){callback()};
-    },1000);
+    },10);
   }
   getMinutes() {
     // ... your code goes here
-    return Number(Math.trunc(this.currentTime/60));
+    return Number(Math.trunc((this.currentTime/100)/60));
   }
   getSeconds() {
     // ... your code goes here
-    return Number(this.currentTime % 60);
+    return Number(Math.trunc(this.currentTime/100) % 60);
+  }
+  getMilliseconds(){
+    // ... your code goes here
+    return Number(this.currentTime % 100);
   }
   twoDigitsNumber(myTime) {
     // ... your code goes here
@@ -81,6 +38,6 @@ class Chronometer {
   }
   splitClick() {
     // ... your code goes here
-    return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}`;
+    return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}:${this.twoDigitsNumber(this.getMilliseconds())}`;
   }
 }
