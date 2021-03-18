@@ -14,15 +14,22 @@ let milUni = document.getElementById('milUni');
 let splits = document.getElementById('splits');
 
 function printTime() {
-  // ... your code goes here
+  printMinutes()
+  printSeconds()
 }
 
 function printMinutes() {
-  // ... your code goes here
+  const strtime = chronometer.splitClick(); // '09:12'
+
+  minDec.innerHTML = strtime[0]; // "0"
+  minUni.innerHTML = strtime[1]; // "9"
 }
 
 function printSeconds() {
-  // ... your code goes here
+  const strtime = chronometer.splitClick(); // '09:12'
+
+  secDec.innerHTML = strtime[3]; // "1"
+  secUni.innerHTML = strtime[4]; // "2"
 }
 
 // ==> BONUS
@@ -31,35 +38,61 @@ function printMilliseconds() {
 }
 
 function printSplit() {
-  // ... your code goes here
+  // create a new li
+  const $li = document.createElement('li');
+  $li.innerHTML = chronometer.splitClick()
+  
+  // append it to ul
+  splits.appendChild($li)
 }
 
 function clearSplits() {
-  // ... your code goes here
+  // reset the watch
+  chronometer.resetClick()
+  printTime()
+
+  // reset the splits
+  splits.innerHTML = ''
 }
 
 function setStopBtn() {
-  // ... your code goes here
+  btnLeft.innerHTML = 'STOP';
+  btnLeft.className = 'btn stop';
 }
 
 function setSplitBtn() {
-  // ... your code goes here
+  btnRight.innerHTML = 'SPLIT';
+  btnRight.className = 'btn split';
 }
 
 function setStartBtn() {
-  // ... your code goes here
+  btnLeft.innerHTML = 'START';
+  btnLeft.className = 'btn start';
 }
 
 function setResetBtn() {
-  // ... your code goes here
+  btnRight.innerHTML = 'RESET';
+  btnRight.className = 'btn reset';
 }
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnLeft.innerHTML === 'START') {
+    chronometer.startClick(printTime);
+    setStopBtn();
+    setSplitBtn();
+  } else {
+    chronometer.stopClick();
+    setStartBtn();
+    setResetBtn();
+  }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ... your code goes here
+  if (btnRight.innerHTML === 'RESET') {
+    clearSplits()
+  } else {
+    printSplit()
+  }
 });
